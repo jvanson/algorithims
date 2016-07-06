@@ -1,0 +1,49 @@
+// swap
+    // given array swap index A with index B
+function swap(myAry, startIndex, minIndex) {
+    var tmp = myAry[startIndex];
+    myAry[startIndex] = myAry[minIndex];
+    myAry[minIndex] = tmp;
+}
+
+// findMinIndex 
+    // given array start at given index and iterate entire array to find smallest number then return its index
+
+function findMinIndex(myAry, startIndex) {
+    var minIndex = startIndex;
+    var minValue = myAry[startIndex];
+    for (var i = minIndex + 1; i < myAry.length; i++) {
+        if (minValue > myAry[i]) {
+            minIndex = i;
+            minValue = myAry[i];
+        }
+    }
+    return minIndex;
+}
+// Main
+// loop thru array
+
+
+var selectionSort = function() {
+    var minIndex;
+    for (var i = 0; i < myAry.length; i++) {
+        var startIndex = i;
+        minIndex = findMinIndex(myAry, startIndex);
+        if (minIndex) {
+            swap(myAry, startIndex, minIndex);
+        }
+    }
+
+}
+
+var myAry = [7,9,4];
+selectionSort(myAry);
+println('Array after sorting: ', myAry);
+
+
+
+// find smallest number and return its index
+
+// swap current iteration of array with index of smallest number
+
+// next
