@@ -20,31 +20,47 @@ class SelectionSort
 		# and find lowest number from entire subarray.
 		# after iteration is done, return index of lowest number 
 		# myarray.each do | x |
-		(myarray[start_index+1]..myarray.length).each do | x |
-			puts x
+		min_index = start_index
+		min_value = myarray[start_index]
+
+		for i in (start_index + 1)..(myarray.length - 1)
+			# puts "index: #{i} value: #{myarray[i]}"
+			if myarray[i] < min_value
+				min_value = myarray[i]
+				min_index = i
+			end
 		end
+
+		return min_index
 
 
 	end
 
 	def selectionsort
+		puts "Original array: #{@myarray}"
 
 		# scan entire array
 
 			# find lowest number and return its index
 				# if its return swap current index with lowest number index
-		@myarray.each do | x |
-			puts x
+		@myarray.each_index do | i |
+			min_index = findminindex(@myarray, i)
+			if min_index
+				swap(@myarray, i, min_index)
+
+			end
 		end
+
+		puts "Sorted array: #{@myarray}"
 
 	end
 
-arry = [3,2,5]
+arry = [3,2,5,1,8]
 doit = SelectionSort.new(arry)
 doit.selectionsort
-doit.swap(arry, 0,1)
-doit.selectionsort
-doit.findminindex(arry, 0)
+#doit.swap(arry, 0,1)
+#doit.selectionsort
+#doit.findminindex(arry, 0)
 
 
 
