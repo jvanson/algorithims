@@ -36,7 +36,7 @@ class SelectionSort
 
 	end
 
-	def selectionsort
+	def selection_sort
 		puts "Original array: #{@myarray}"
 
 		# scan entire array
@@ -57,7 +57,7 @@ class SelectionSort
 
 arry = [3,2,5,1,8]
 doit = SelectionSort.new(arry)
-doit.selectionsort
+doit.selection_sort
 #doit.swap(arry, 0,1)
 #doit.selectionsort
 #doit.findminindex(arry, 0)
