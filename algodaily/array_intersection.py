@@ -18,13 +18,21 @@
 # intersection(nums1, nums2);
 # // [9, 4]
 
-nums1 = [1, 2, 2, 1]
-nums2 = [2,2]
+nums1 = [4,9,5]
+nums2 = [9, 4, 9, 8, 4]
+
+foo = list(set(nums1) & set(nums2))
 
 store_array = []
 for num1 in nums1:
     if num1 in nums2:
-        if num1 not in store_array:
-            store_array.append(num1)
+        store_array.append(num1)
 
-print(store_array)
+dedupe_array = list(set(store_array))
+
+print(dedupe_array)
+
+# 2nd method using built-in set function
+foo = list(set(nums1) & set(nums2))
+
+print(foo)
