@@ -36,3 +36,8 @@ print(dedupe_array)
 foo = list(set(nums1) & set(nums2))
 
 print(foo)
+
+# 3rd method using 1st class part of set function
+
+bar = set(nums1).intersection(nums2)
+print(bar)
