@@ -1,31 +1,32 @@
-class HashMap():
+class Hashmap:
     def __init__(self):
-        self.storage = []
+        self.storage = [None for _ in range(16)]
+        print(f'here is storage: {self.storage}')
 
-    def hashit(self, key):
-        hashkey = 0
+    def hashStr(self, key):
+        if isinstance(key, int):
+            return key
+
+        result = 0
         for char in key:
-            charcode = ord(char)
-            print(f'characode for {char} is {charcode}')
-            hashkey += charcode
-        print(f'my hash key {hashkey}')
-        return hashkey
+            result += ord(char)
+            #result = 1 * result + ord(char)
+        print(f'here is result:{result}')
+        return result
 
-
-    def set(self, key, value):
-        hashkey = self.hashit(key)
-        # this doesn't work in python
-        # but would in javascript or ruby. python
-        # doesn't let you insert into an arbitrary index value
-        self.storage[hashkey].push(key, value)
+    def set(self, key, val):
+        idx = self.hashStr(key)%16
+        print(f'here is idx: {idx}')
+        self.storage[idx] =  val
 
     def get(self, key):
-        hashkey = self.hashit(key)
-        for i in range self.storage:
-            if i == hashkey:
-                return self.storage[hashkey]
+        idx = self.hashStr(key)%16
+        return self.storage[idx]
 
-
-
-foo = HashMap()
-print(foo.hashit('somevalue'))
+dict = Hashmap()
+dict.set("jess", 1231231)
+dict.set("val", 12930)
+dict.set("anson", 'skdjf')
+print(dict.get("val"))
+print(dict.get("anson"))
+print(dict.storage)
